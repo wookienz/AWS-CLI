@@ -1,2 +1,3 @@
-# AWStranscribe
-CLI demo on using AWS transcribe function
+# AWS CLI Usage Examples
+
+Various ramblings on using the AWS CLI.
