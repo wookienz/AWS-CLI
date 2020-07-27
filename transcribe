@@ -1,0 +1,20 @@
+Make bucket:
+  
+    aws s3 mb s3://yournewbucket
+  
+Copy file to bucket:
+  Copy the local file YourMP3.mp3 to the bucket created above.
+    aws s3 cp .\YourMP3.mp3 s3://yournewbucket/
+  
+Setup transcribe job:
+  aws transcribe start-transcription-job --transcription-job-name "YourJobName" --language-code "en-US" \
+  --media MediaFileUri="https://YourBucket.s3-YOURREGION.amazonaws.com/yourtranscribefile.mp3"
+
+Listing Transcription Jobs:
+  aws transcribe list-transcription-jobs
+  
+  This will reurn a JSON document with the TranscriptionJobName field representing your job name during the setup process
+ 
+Getting transption Job Status via Job Name:
+   aws transcribe get-transcription-job --transcription-job-name "JobName"
+   The reutrned JSON will eventually contain the TranscriptFileUri field which contains a link to the S3 bucket containing the transcription JSON document.
